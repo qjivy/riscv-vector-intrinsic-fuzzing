@@ -88,10 +88,10 @@ struct ValueBase {
   // ctor for derived Operator
   ValueBase(const CustomValType &type, const std::string &typeID,
             const std::string &id, const unsigned numOfInputs,
-            std::string input_nfields, int output_nfield,
-            TypeClass typeClass, int dataWidth, LmulType lmul)
+            std::string input_nfields, int output_nfield, TypeClass typeClass,
+            int dataWidth, LmulType lmul)
       : type(type), typeID(typeID), id(id), dataTypeID(""), length(0),
-        inputs(numOfInputs, nullptr), input_nfields(input_nfields), 
+        inputs(numOfInputs, nullptr), input_nfields(input_nfields),
         output_nfield(output_nfield), outputs(1, nullptr),
         typeInfo(TypeInfo::create(lmul, SewType{dataWidth}, typeClass)),
         dt(DataTypeEnum::Not_set) {}
@@ -111,7 +111,7 @@ struct ValueBase {
   int output_nfield;
 
   std::vector<ValueBase *> inputs;
-  std::vector<std::vector<ValueBase *>> tuple_inputs; //todo:
+  std::vector<std::vector<ValueBase *>> tuple_inputs; // todo:
   std::vector<ValueBase *> outputs;
 
   int length;
@@ -155,14 +155,13 @@ struct OperatorBase : ValueBase {
 
   OperatorBase(const CustomValType &type, const std::string &typeID,
                const std::string &id, const OperatorAttrT opAttr,
-               const unsigned numOfInputs,
-               std::string input_nfields,
+               const unsigned numOfInputs, std::string input_nfields,
                int output_nfield,
                const std::initializer_list<CustomValType> inputTypes,
                const CustomValType outputType, int dataWidth, LmulType lmul,
                TypeClass typeClass)
-      : ValueBase(type, typeID, id, numOfInputs, input_nfields, output_nfield, 
-        typeClass, dataWidth, lmul),
+      : ValueBase(type, typeID, id, numOfInputs, input_nfields, output_nfield,
+                  typeClass, dataWidth, lmul),
         opAttr(opAttr), inputTypes(inputTypes), outputType(outputType) {}
 
   virtual ~OperatorBase() = default;
