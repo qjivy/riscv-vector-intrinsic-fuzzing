@@ -1,2 +1,2 @@
-CUSTOM_OP_TYPE(Le16X16VFloat16SF16, le16_v, 16, FLOAT, NonmaskedOperation | LoadOperation | HaveVLParameter,OneDFloat16, 1, None, None, OneDFloat16,)
-CUSTOM_OP_TYPE(AddVV32VInt32VIVI, add_vv, 32, SIGNED_INT, NonmaskedOperation | HaveVLParameter,OneDInt32, 2, None, None, OneDInt32, OneDInt32,)
+CUSTOM_OP_TYPE(Le16X16VFloat16SF16, le16_v, 16, FLOAT, NonmaskedOperation | LoadOperation | HaveVLParameter,OneDFloat16, 1, 0, 0, OneDFloat16,)
+CUSTOM_OP_TYPE(AddVV32VInt32VIVI, add_vv, 32, SIGNED_INT, NonmaskedOperation | HaveVLParameter,OneDInt32, 2, 0, 0, OneDInt32, OneDInt32,)

@@ -68,7 +68,6 @@ enum DataTypeEnum {
   Float64_t,
   Ptrdiff_t,
   Size_t,
-  Void,
   Not_set // Don't set for `Operator`
 };
 
@@ -88,7 +87,7 @@ struct ValueBase {
   // ctor for derived Operator
   ValueBase(const CustomValType &type, const std::string &typeID,
             const std::string &id, const unsigned numOfInputs,
-            std::string input_nfields, int output_nfield, TypeClass typeClass,
+            int input_nfields, int output_nfield, TypeClass typeClass,
             int dataWidth, LmulType lmul)
       : type(type), typeID(typeID), id(id), dataTypeID(""), length(0),
         inputs(numOfInputs, nullptr), input_nfields(input_nfields),
@@ -107,7 +106,7 @@ struct ValueBase {
   const std::string typeID;
   const std::string id;
   const std::string dataTypeID;
-  std::string input_nfields;
+  int input_nfields;
   int output_nfield;
 
   std::vector<ValueBase *> inputs;
@@ -155,8 +154,8 @@ struct OperatorBase : ValueBase {
 
   OperatorBase(const CustomValType &type, const std::string &typeID,
                const std::string &id, const OperatorAttrT opAttr,
-               const unsigned numOfInputs, std::string input_nfields,
-               int output_nfield,
+               const unsigned numOfInputs,
+	       int input_nfields, int output_nfield,
                const std::initializer_list<CustomValType> inputTypes,
                const CustomValType outputType, int dataWidth, LmulType lmul,
                TypeClass typeClass)

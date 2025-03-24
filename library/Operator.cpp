@@ -238,7 +238,7 @@ void InitializeOp::generateCCode(std::ostream &os) {
 #define CUSTOM_SCALAR_TYPE(CUSTOM_NAME, DATA_TYPE, DATA_WIDTH, DATA_CLASS,     \
                            MIN_VALUE, MAX_VALUE)                               \
   if (value->type == CustomValType::Scalar##CUSTOM_NAME) {                     \
-    if (CUSTOM_NAME == UIntStatus) {                                           \
+    if (Scalar##CUSTOM_NAME == ScalarUIntStatus) {                                           \
       generateScalarFRMCCode<Scalar##CUSTOM_NAME##Val>(os, value, #DATA_TYPE); \
       generateScalarVXRMCCode<Scalar##CUSTOM_NAME##Val>(os, value,             \
                                                         #DATA_TYPE);           \
