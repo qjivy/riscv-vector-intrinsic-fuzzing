@@ -154,8 +154,7 @@ struct OperatorBase : ValueBase {
 
   OperatorBase(const CustomValType &type, const std::string &typeID,
                const std::string &id, const OperatorAttrT opAttr,
-               const unsigned numOfInputs,
-	       int input_nfields, int output_nfield,
+               const unsigned numOfInputs, int input_nfields, int output_nfield,
                const std::initializer_list<CustomValType> inputTypes,
                const CustomValType outputType, int dataWidth, LmulType lmul,
                TypeClass typeClass)
